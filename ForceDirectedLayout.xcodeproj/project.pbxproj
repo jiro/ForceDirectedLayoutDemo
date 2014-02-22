@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4B398A8918B913410057D981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B398A8818B913410057D981 /* Main.storyboard */; };
+		4BE2CBDE18B9117C009CF4F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBDD18B9117C009CF4F2 /* Foundation.framework */; };
+		4BE2CBE018B9117C009CF4F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBDF18B9117C009CF4F2 /* CoreGraphics.framework */; };
+		4BE2CBE218B9117C009CF4F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBE118B9117C009CF4F2 /* UIKit.framework */; };
+		4BE2CBEA18B9117C009CF4F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CBE918B9117C009CF4F2 /* main.m */; };
+		4BE2CBEE18B9117C009CF4F2 /* FDDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BE2CBED18B9117C009CF4F2 /* FDDAppDelegate.m */; };
+		4BE2CBF618B9117C009CF4F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BE2CBF518B9117C009CF4F2 /* Images.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4B398A8818B913410057D981 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4BE2CBDA18B9117C009CF4F2 /* ForceDirectedLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForceDirectedLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BE2CBDD18B9117C009CF4F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4BE2CBDF18B9117C009CF4F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4BE2CBE118B9117C009CF4F2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4BE2CBE518B9117C009CF4F2 /* ForceDirectedLayout-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ForceDirectedLayout-Info.plist"; sourceTree = "<group>"; };
+		4BE2CBE918B9117C009CF4F2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4BE2CBEB18B9117C009CF4F2 /* ForceDirectedLayout-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ForceDirectedLayout-Prefix.pch"; sourceTree = "<group>"; };
+		4BE2CBEC18B9117C009CF4F2 /* FDDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDDAppDelegate.h; sourceTree = "<group>"; };
+		4BE2CBED18B9117C009CF4F2 /* FDDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FDDAppDelegate.m; sourceTree = "<group>"; };
+		4BE2CBF518B9117C009CF4F2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BE2CBD718B9117C009CF4F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BE2CBE218B9117C009CF4F2 /* UIKit.framework in Frameworks */,
+				4BE2CBDE18B9117C009CF4F2 /* Foundation.framework in Frameworks */,
+				4BE2CBE018B9117C009CF4F2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BE2CBD118B9117C009CF4F2 = {
+			isa = PBXGroup;
+			children = (
+				4BE2CBE318B9117C009CF4F2 /* ForceDirectedLayout */,
+				4BE2CBDC18B9117C009CF4F2 /* Frameworks */,
+				4BE2CBDB18B9117C009CF4F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BE2CBDB18B9117C009CF4F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BE2CBDA18B9117C009CF4F2 /* ForceDirectedLayout.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BE2CBDC18B9117C009CF4F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4BE2CBE118B9117C009CF4F2 /* UIKit.framework */,
+				4BE2CBDD18B9117C009CF4F2 /* Foundation.framework */,
+				4BE2CBDF18B9117C009CF4F2 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4BE2CBE318B9117C009CF4F2 /* ForceDirectedLayout */ = {
+			isa = PBXGroup;
+			children = (
+				4BF4FBAF18B912900033C734 /* Classes */,
+				4BF4FBB018B9129F0033C734 /* Resources */,
+				4BE2CBE418B9117C009CF4F2 /* Supporting Files */,
+			);
+			path = ForceDirectedLayout;
+			sourceTree = "<group>";
+		};
+		4BE2CBE418B9117C009CF4F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BE2CBE518B9117C009CF4F2 /* ForceDirectedLayout-Info.plist */,
+				4BE2CBEB18B9117C009CF4F2 /* ForceDirectedLayout-Prefix.pch */,
+				4BE2CBE918B9117C009CF4F2 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BF4FBAF18B912900033C734 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4BE2CBEC18B9117C009CF4F2 /* FDDAppDelegate.h */,
+				4BE2CBED18B9117C009CF4F2 /* FDDAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4BF4FBB018B9129F0033C734 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4B398A8818B913410057D981 /* Main.storyboard */,
+				4BE2CBF518B9117C009CF4F2 /* Images.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BE2CBD918B9117C009CF4F2 /* ForceDirectedLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BE2CC0C18B9117C009CF4F2 /* Build configuration list for PBXNativeTarget "ForceDirectedLayout" */;
+			buildPhases = (
+				4BE2CBD618B9117C009CF4F2 /* Sources */,
+				4BE2CBD718B9117C009CF4F2 /* Frameworks */,
+				4BE2CBD818B9117C009CF4F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ForceDirectedLayout;
+			productName = ForceDirectedLayout;
+			productReference = 4BE2CBDA18B9117C009CF4F2 /* ForceDirectedLayout.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BE2CBD218B9117C009CF4F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = FDD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Jiro Nagashima";
+			};
+			buildConfigurationList = 4BE2CBD518B9117C009CF4F2 /* Build configuration list for PBXProject "ForceDirectedLayout" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BE2CBD118B9117C009CF4F2;
+			productRefGroup = 4BE2CBDB18B9117C009CF4F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BE2CBD918B9117C009CF4F2 /* ForceDirectedLayout */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BE2CBD818B9117C009CF4F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BE2CBF618B9117C009CF4F2 /* Images.xcassets in Resources */,
+				4B398A8918B913410057D981 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BE2CBD618B9117C009CF4F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BE2CBEA18B9117C009CF4F2 /* main.m in Sources */,
+				4BE2CBEE18B9117C009CF4F2 /* FDDAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4BE2CC0A18B9117C009CF4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4BE2CC0B18B9117C009CF4F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4BE2CC0D18B9117C009CF4F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ForceDirectedLayout/ForceDirectedLayout-Prefix.pch";
+				INFOPLIST_FILE = "ForceDirectedLayout/ForceDirectedLayout-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4BE2CC0E18B9117C009CF4F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ForceDirectedLayout/ForceDirectedLayout-Prefix.pch";
+				INFOPLIST_FILE = "ForceDirectedLayout/ForceDirectedLayout-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BE2CBD518B9117C009CF4F2 /* Build configuration list for PBXProject "ForceDirectedLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BE2CC0A18B9117C009CF4F2 /* Debug */,
+				4BE2CC0B18B9117C009CF4F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BE2CC0C18B9117C009CF4F2 /* Build configuration list for PBXNativeTarget "ForceDirectedLayout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BE2CC0D18B9117C009CF4F2 /* Debug */,
+				4BE2CC0E18B9117C009CF4F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BE2CBD218B9117C009CF4F2 /* Project object */;
+}
