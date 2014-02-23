@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Jiro Nagashima. All rights reserved.
 //
 
-#import "FDDGraphViewNode.h"
+#import "FDDNodeCell.h"
 
-@implementation FDDGraphViewNode
+@implementation FDDNodeCell
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {

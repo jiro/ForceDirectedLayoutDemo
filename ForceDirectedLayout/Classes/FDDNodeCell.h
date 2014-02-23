@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FDDGraphViewNode : UICollectionViewCell
+@interface FDDNodeCell : UICollectionViewCell
 
 @end

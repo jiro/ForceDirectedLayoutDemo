@@ -8,7 +8,7 @@
 
 #import "FDDGraphViewController.h"
 #import "FDDForceDirectedLayout.h"
-#import "FDDGraphViewNode.h"
+#import "FDDNodeCell.h"
 
 @interface FDDGraphViewController ()
 
@@ -54,8 +54,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FDDGraphViewNode *node = [collectionView dequeueReusableCellWithReuseIdentifier:@"Node" forIndexPath:indexPath];
-    return node;
+    FDDNodeCell *nodeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NodeCell" forIndexPath:indexPath];
+    return nodeCell;
 }
 
 #pragma mark - UIGestureRecognizerDelegate
