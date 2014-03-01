@@ -10,13 +10,9 @@
 
 @implementation FDDNodeCell
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (void)applyLayoutAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
 {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        self.layer.cornerRadius = 22.0f;
-    }
-    return self;
+    self.layer.cornerRadius = layoutAttributes.size.width / 2;
 }
 
 @end

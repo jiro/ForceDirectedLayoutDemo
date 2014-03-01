@@ -88,7 +88,7 @@
 - (void)addAttachmentBehaviorToItem:(id<UIDynamicItem>)item otherItem:(id<UIDynamicItem>)otherItem
 {
     UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:item attachedToItem:otherItem];
-    attachmentBehavior.length = 80.0f;
+    attachmentBehavior.length = 140.0f;
     attachmentBehavior.damping = 0.85f;
     attachmentBehavior.frequency = 0.3f;
     [self addChildBehavior:attachmentBehavior];

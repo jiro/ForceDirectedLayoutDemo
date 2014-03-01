@@ -20,7 +20,7 @@
 {
     self = [super init];
     if (self) {
-        self.size = CGSizeMake(44.0f, 44.0f);
+        self.size = CGSizeMake(60.0f, 60.0f);
         
         _connectedAttributes = [NSMutableArray array];
     }
