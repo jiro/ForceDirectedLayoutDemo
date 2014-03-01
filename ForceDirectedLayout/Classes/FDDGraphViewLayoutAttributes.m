@@ -32,6 +32,16 @@
 - (void)addConnectedAttributes:(FDDGraphViewLayoutAttributes *)attributes
 {
     [self.connectedAttributes addObject:attributes];
+    
+    NSInteger s1 = arc4random_uniform(2) ? -1 : 1;
+    NSInteger s2 = arc4random_uniform(2) ? -1 : 1;
+    
+    // Generate a random number (0.5 to 1.5)
+    srand48(time(0));
+    CGFloat r1 = drand48() + 0.5;
+    CGFloat r2 = drand48() + 0.5;
+    
+    self.frame = CGRectOffset(attributes.frame, s1*r1, s2*r2);
 }
 
 - (void)removeConnectedAttributes:(FDDGraphViewLayoutAttributes *)attributes

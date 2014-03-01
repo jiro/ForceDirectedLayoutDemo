@@ -34,7 +34,7 @@
                         </connections>
                     </collectionView>
                     <connections>
-                        <outlet property="pangestureRecognizer" destination="rTz-mR-cm8" id="xET-N4-OPc"/>
+                        <outlet property="panGestureRecognizer" destination="rTz-mR-cm8" id="gHd-zE-nRc"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPp-2t-1Vg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,14 +13,24 @@
 
 @interface FDDGraphViewController ()
 
-@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *pangestureRecognizer;
+@property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *panGestureRecognizer;
 
 @property (nonatomic, strong) FDDLinksView *linksView;
 @property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, assign) NSUInteger numberOfNodes;
 
 @end
 
 @implementation FDDGraphViewController
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        _numberOfNodes = 1;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -64,11 +74,8 @@
     
     switch (panGestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
-        {
-            NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:location];
-            [forceDirectedLayout startPanItemAtIndexPath:indexPath atPoint:location];
+            [forceDirectedLayout startPanItemAtIndexPath:[self.collectionView indexPathForItemAtPoint:location] atPoint:location];
             break;
-        }
             
         case UIGestureRecognizerStateChanged:
             [forceDirectedLayout updatePanPoint:location];
@@ -94,24 +101,32 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 3;
+    return self.numberOfNodes;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    FDDNodeCell *nodeCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NodeCell" forIndexPath:indexPath];
-    return nodeCell;
+    return [collectionView dequeueReusableCellWithReuseIdentifier:@"NodeCell" forIndexPath:indexPath];
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self.collectionView performBatchUpdates:^{
+        [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:self.numberOfNodes inSection:0]]];
+        self.numberOfNodes++;
+    } completion:nil];
 }
 
 #pragma mark - UIGestureRecognizerDelegate
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (gestureRecognizer == self.pangestureRecognizer) {
+    if (gestureRecognizer == self.panGestureRecognizer) {
         CGPoint location = [gestureRecognizer locationInView:self.collectionView];
         return ([self.collectionView indexPathForItemAtPoint:location] != nil);
     }
-    
     return YES;
 }
 

@@ -29,6 +29,25 @@
     return self;
 }
 
+- (void)addChildBehaviorsToEachItems
+{
+    // Add a child behavior to the first item to avoid that the dynamic animator's items become nil.
+    id<UIDynamicItem> firstItem = [self.items firstObject];
+    UIDynamicItemBehavior *itemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[firstItem]];
+    [self addChildBehavior:itemBehavior];
+    
+    for (NSInteger i = 0; i < [self.items count]; i++) {
+        id<UIDynamicItem> item = self.items[i];
+        
+        for (NSInteger j = (i + 1); j < [self.items count]; j++) {
+            id<UIDynamicItem> otherItem = self.items[j];
+            
+            [self addPushBehaviorsToItem:item otherItem:otherItem];
+            [self addAttachmentBehaviorToItem:item otherItem:otherItem];
+        }
+    }
+}
+
 #pragma mark - Public
 
 - (void)addItem:(id<UIDynamicItem>)item
@@ -43,27 +62,13 @@
 
 #pragma mark - Private
 
-- (void)addChildBehaviorsToEachItems
-{
-    for (NSInteger i = 0; i < [self.items count]; i++) {
-        id<UIDynamicItem> item = self.items[i];
-
-        for (NSInteger j = (i + 1); j < [self.items count]; j++) {
-            id<UIDynamicItem> otherItem = self.items[j];
-            
-            [self addPushBehaviorsToItem:item otherItem:otherItem];
-            [self addAttachmentBehaviorToItem:item otherItem:otherItem];
-        }
-    }
-}
-
 - (void)addPushBehaviorsToItem:(id<UIDynamicItem>)item otherItem:(id<UIDynamicItem>)otherItem
 {
     UIPushBehavior *pushBehavior;
     
     CGPoint translation = CGPointMake(item.center.x - otherItem.center.x, item.center.y - otherItem.center.y);
-    CGFloat tx = translation.x / 100.0f;
-    CGFloat ty = translation.y / 100.0f;
+    CGFloat tx = translation.x / 1000.0f;
+    CGFloat ty = translation.y / 1000.0f;
     
     CGFloat distance = hypotf(tx, ty);
     CGFloat magnitude = - 400 / powf(distance, 2);

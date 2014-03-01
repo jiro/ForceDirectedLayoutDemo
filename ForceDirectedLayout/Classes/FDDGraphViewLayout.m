@@ -12,35 +12,59 @@
 
 @interface FDDGraphViewLayout ()
 
-@property (nonatomic, strong) UIDynamicAnimator *animator;
+@property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
 @property (nonatomic, strong) FDDForceBehavior *forceBehavior;
 @property (nonatomic, strong) UIAttachmentBehavior *attachmentBehavior;
-@property (nonatomic, assign, getter = isPanning) BOOL panning;
 
 @end
 
 @implementation FDDGraphViewLayout
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
+    }
+    return self;
+}
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    NSArray *allAttributes = [self allAttributes];
+    for (FDDGraphViewLayoutAttributes *attributes in allAttributes) {
+        attributes.center = self.collectionView.center;
+    }
+    
+    self.forceBehavior = [[FDDForceBehavior alloc] initWithItems:allAttributes];
+    [self.dynamicAnimator addBehavior:self.forceBehavior];
+}
+
+- (NSArray *)allAttributes
+{
+    NSMutableArray *allAttributes = [NSMutableArray array];
+    for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++) {
+        for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
+            FDDGraphViewLayoutAttributes *attributes = [FDDGraphViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+            [allAttributes addObject:attributes];
+        }
+    }
+    return allAttributes;
+}
+
 #pragma mark - SubclassingHooks
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    if (self.animator) {
-        return [self.animator itemsInRect:rect];
-    }
-    else {
-        return [self allAttributes];
-    }
+    return [self.dynamicAnimator itemsInRect:rect];
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.animator) {
-        return [self.animator layoutAttributesForCellAtIndexPath:indexPath];
-    }
-    else {
-        return [super layoutAttributesForItemAtIndexPath:indexPath];
-    }
+    return [self.dynamicAnimator layoutAttributesForCellAtIndexPath:indexPath];
 }
 
 - (CGSize)collectionViewContentSize
@@ -54,12 +78,14 @@
 {
     [super prepareForCollectionViewUpdates:updateItems];
     
-    if (self.animator) {
-        for (UICollectionViewUpdateItem *updateItem in updateItems) {
-            if (updateItem.updateAction == UICollectionUpdateActionInsert) {
-                UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:updateItem.indexPathAfterUpdate];
-                [self.forceBehavior addItem:attributes];
-            }
+    NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+    FDDGraphViewLayoutAttributes *selectedAttributes = (FDDGraphViewLayoutAttributes *)[self layoutAttributesForItemAtIndexPath:selectedIndexPath];
+    
+    for (UICollectionViewUpdateItem *updateItem in updateItems) {
+        if (updateItem.updateAction == UICollectionUpdateActionInsert) {
+            FDDGraphViewLayoutAttributes *attributes = [FDDGraphViewLayoutAttributes layoutAttributesForCellWithIndexPath:updateItem.indexPathAfterUpdate];
+            [attributes addConnectedAttributes:selectedAttributes];
+            [self.forceBehavior addItem:attributes];
         }
     }
 }
@@ -73,20 +99,9 @@
 
 - (void)startPanItemAtIndexPath:(NSIndexPath *)indexPath atPoint:(CGPoint)point
 {
-    if (!self.animator) {
-        self.animator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
-        self.animator.delegate = self;
-        
-        NSArray *allAttributes = [self allAttributes];
-        self.forceBehavior = [[FDDForceBehavior alloc] initWithItems:allAttributes];
-        [self.animator addBehavior:self.forceBehavior];
-    }
-    
     UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
     self.attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:attributes attachedToAnchor:point];
-    [self.animator addBehavior:self.attachmentBehavior];
-    
-    self.panning = YES;
+    [self.dynamicAnimator addBehavior:self.attachmentBehavior];
 }
 
 - (void)updatePanPoint:(CGPoint)point
@@ -96,42 +111,8 @@
 
 - (void)endPan
 {
-    [self.animator removeBehavior:self.attachmentBehavior];
+    [self.dynamicAnimator removeBehavior:self.attachmentBehavior];
     self.attachmentBehavior = nil;
-    
-    self.panning = NO;
-}
-
-#pragma mark - Private
-
-- (NSArray *)allAttributes
-{
-    NSMutableArray *allAttributes = [NSMutableArray array];
-    FDDGraphViewLayoutAttributes *previousAttributes;
-    for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++) {
-        for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            FDDGraphViewLayoutAttributes *attributes = [FDDGraphViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            attributes.center = CGPointMake(self.collectionView.center.x, self.collectionView.center.y + indexPath.row * 60);
-            [allAttributes addObject:attributes];
-            
-            if (previousAttributes) {
-                [previousAttributes addConnectedAttributes:attributes];
-            }
-            previousAttributes = attributes;
-        }
-    }
-    return allAttributes;
-}
-
-#pragma mark - UIDynamicAnimatorDelegate
-
-- (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator
-{
-    if (![self isPanning]) {
-        self.animator = nil;
-        self.forceBehavior = nil;
-    }
 }
 
 @end

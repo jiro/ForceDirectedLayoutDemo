@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FDDGraphViewLayout : UICollectionViewLayout <UIDynamicAnimatorDelegate>
+@interface FDDGraphViewLayout : UICollectionViewLayout
 
 - (NSArray *)forcedItems;
 
