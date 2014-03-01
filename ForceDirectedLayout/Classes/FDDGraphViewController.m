@@ -7,23 +7,60 @@
 //
 
 #import "FDDGraphViewController.h"
-#import "FDDForceDirectedLayout.h"
+#import "FDDLinksView.h"
+#import "FDDGraphViewLayout.h"
 #import "FDDNodeCell.h"
 
 @interface FDDGraphViewController ()
 
 @property (nonatomic, strong) IBOutlet UIPanGestureRecognizer *pangestureRecognizer;
 
+@property (nonatomic, strong) FDDLinksView *linksView;
+@property (nonatomic, strong) CADisplayLink *displayLink;
+
 @end
 
 @implementation FDDGraphViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.linksView = [FDDLinksView new];
+    self.linksView.backgroundColor = [UIColor clearColor];
+    [self.collectionView addSubview:self.linksView];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.linksView.frame = self.collectionView.bounds;
+    [self.collectionView sendSubviewToBack:self.linksView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateLinks:)];
+    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.displayLink removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.displayLink invalidate];
+}
 
 #pragma mark - IBActions
 
 - (IBAction)panAction:(UIPanGestureRecognizer *)panGestureRecognizer
 {
     CGPoint location = [panGestureRecognizer locationInView:self.collectionView];
-    FDDForceDirectedLayout *forceDirectedLayout = (FDDForceDirectedLayout *)self.collectionViewLayout;
+    FDDGraphViewLayout *forceDirectedLayout = (FDDGraphViewLayout *)self.collectionViewLayout;
     
     switch (panGestureRecognizer.state) {
         case UIGestureRecognizerStateBegan:
@@ -43,6 +80,14 @@
         default:
             break;
     }
+}
+
+#pragma mark - Private
+
+- (void)updateLinks:(id)sender
+{
+    self.linksView.attributes = [(FDDGraphViewLayout *)self.collectionViewLayout forcedItems];
+    [self.linksView setNeedsDisplay];
 }
 
 #pragma mark - UICollectionViewDataSource

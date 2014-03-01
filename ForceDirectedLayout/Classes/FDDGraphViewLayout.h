@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FDDForceDirectedLayout : UICollectionViewLayout <UIDynamicAnimatorDelegate>
+@interface FDDGraphViewLayout : UICollectionViewLayout <UIDynamicAnimatorDelegate>
+
+- (NSArray *)forcedItems;
 
 - (void)startPanItemAtIndexPath:(NSIndexPath *)indexPath atPoint:(CGPoint)point;
 - (void)updatePanPoint:(CGPoint)point;

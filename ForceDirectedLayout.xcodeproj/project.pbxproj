@@ -10,8 +10,10 @@
 		4B398A8918B913410057D981 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B398A8818B913410057D981 /* Main.storyboard */; };
 		4B398A8C18B914FB0057D981 /* FDDGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B398A8B18B914FB0057D981 /* FDDGraphViewController.m */; };
 		4B398A8F18B915580057D981 /* FDDForceBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B398A8E18B915580057D981 /* FDDForceBehavior.m */; };
-		4B398A9218B9158D0057D981 /* FDDForceDirectedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B398A9118B9158D0057D981 /* FDDForceDirectedLayout.m */; };
+		4B398A9218B9158D0057D981 /* FDDGraphViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B398A9118B9158D0057D981 /* FDDGraphViewLayout.m */; };
 		4B398A9518B916020057D981 /* FDDNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B398A9418B916020057D981 /* FDDNodeCell.m */; };
+		4B50422718C1A9DF00002709 /* FDDLinksView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B50422618C1A9DF00002709 /* FDDLinksView.m */; };
+		4B50422A18C1C9A400002709 /* FDDGraphViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B50422918C1C9A400002709 /* FDDGraphViewLayoutAttributes.m */; };
 		4BE2CBDE18B9117C009CF4F2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBDD18B9117C009CF4F2 /* Foundation.framework */; };
 		4BE2CBE018B9117C009CF4F2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBDF18B9117C009CF4F2 /* CoreGraphics.framework */; };
 		4BE2CBE218B9117C009CF4F2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BE2CBE118B9117C009CF4F2 /* UIKit.framework */; };
@@ -26,10 +28,14 @@
 		4B398A8B18B914FB0057D981 /* FDDGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDGraphViewController.m; sourceTree = "<group>"; };
 		4B398A8D18B915580057D981 /* FDDForceBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDForceBehavior.h; sourceTree = "<group>"; };
 		4B398A8E18B915580057D981 /* FDDForceBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDForceBehavior.m; sourceTree = "<group>"; };
-		4B398A9018B9158D0057D981 /* FDDForceDirectedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDForceDirectedLayout.h; sourceTree = "<group>"; };
-		4B398A9118B9158D0057D981 /* FDDForceDirectedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDForceDirectedLayout.m; sourceTree = "<group>"; };
+		4B398A9018B9158D0057D981 /* FDDGraphViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDGraphViewLayout.h; sourceTree = "<group>"; };
+		4B398A9118B9158D0057D981 /* FDDGraphViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDGraphViewLayout.m; sourceTree = "<group>"; };
 		4B398A9318B916020057D981 /* FDDNodeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDNodeCell.h; sourceTree = "<group>"; };
 		4B398A9418B916020057D981 /* FDDNodeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDNodeCell.m; sourceTree = "<group>"; };
+		4B50422518C1A9DF00002709 /* FDDLinksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDLinksView.h; sourceTree = "<group>"; };
+		4B50422618C1A9DF00002709 /* FDDLinksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDLinksView.m; sourceTree = "<group>"; };
+		4B50422818C1C9A400002709 /* FDDGraphViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDGraphViewLayoutAttributes.h; sourceTree = "<group>"; };
+		4B50422918C1C9A400002709 /* FDDGraphViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDGraphViewLayoutAttributes.m; sourceTree = "<group>"; };
 		4BE2CBDA18B9117C009CF4F2 /* ForceDirectedLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForceDirectedLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE2CBDD18B9117C009CF4F2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4BE2CBDF18B9117C009CF4F2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -56,6 +62,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B50422318C1A97F00002709 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				4B398A9018B9158D0057D981 /* FDDGraphViewLayout.h */,
+				4B398A9118B9158D0057D981 /* FDDGraphViewLayout.m */,
+				4B50422818C1C9A400002709 /* FDDGraphViewLayoutAttributes.h */,
+				4B50422918C1C9A400002709 /* FDDGraphViewLayoutAttributes.m */,
+				4B398A8D18B915580057D981 /* FDDForceBehavior.h */,
+				4B398A8E18B915580057D981 /* FDDForceBehavior.m */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		4B50422418C1A98700002709 /* Contents */ = {
+			isa = PBXGroup;
+			children = (
+				4B398A9318B916020057D981 /* FDDNodeCell.h */,
+				4B398A9418B916020057D981 /* FDDNodeCell.m */,
+			);
+			name = Contents;
+			sourceTree = "<group>";
+		};
 		4BE2CBD118B9117C009CF4F2 = {
 			isa = PBXGroup;
 			children = (
@@ -110,12 +138,10 @@
 				4BE2CBED18B9117C009CF4F2 /* FDDAppDelegate.m */,
 				4B398A8A18B914FB0057D981 /* FDDGraphViewController.h */,
 				4B398A8B18B914FB0057D981 /* FDDGraphViewController.m */,
-				4B398A9318B916020057D981 /* FDDNodeCell.h */,
-				4B398A9418B916020057D981 /* FDDNodeCell.m */,
-				4B398A8D18B915580057D981 /* FDDForceBehavior.h */,
-				4B398A8E18B915580057D981 /* FDDForceBehavior.m */,
-				4B398A9018B9158D0057D981 /* FDDForceDirectedLayout.h */,
-				4B398A9118B9158D0057D981 /* FDDForceDirectedLayout.m */,
+				4B50422518C1A9DF00002709 /* FDDLinksView.h */,
+				4B50422618C1A9DF00002709 /* FDDLinksView.m */,
+				4B50422418C1A98700002709 /* Contents */,
+				4B50422318C1A97F00002709 /* Layouts */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -195,8 +221,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B398A9518B916020057D981 /* FDDNodeCell.m in Sources */,
-				4B398A9218B9158D0057D981 /* FDDForceDirectedLayout.m in Sources */,
+				4B50422A18C1C9A400002709 /* FDDGraphViewLayoutAttributes.m in Sources */,
+				4B398A9218B9158D0057D981 /* FDDGraphViewLayout.m in Sources */,
 				4BE2CBEA18B9117C009CF4F2 /* main.m in Sources */,
+				4B50422718C1A9DF00002709 /* FDDLinksView.m in Sources */,
 				4BE2CBEE18B9117C009CF4F2 /* FDDAppDelegate.m in Sources */,
 				4B398A8F18B915580057D981 /* FDDForceBehavior.m in Sources */,
 				4B398A8C18B914FB0057D981 /* FDDGraphViewController.m in Sources */,

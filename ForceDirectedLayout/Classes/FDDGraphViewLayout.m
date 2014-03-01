@@ -6,10 +6,11 @@
 //  Copyright (c) 2014 Jiro Nagashima. All rights reserved.
 //
 
-#import "FDDForceDirectedLayout.h"
+#import "FDDGraphViewLayout.h"
+#import "FDDGraphViewLayoutAttributes.h"
 #import "FDDForceBehavior.h"
 
-@interface FDDForceDirectedLayout ()
+@interface FDDGraphViewLayout ()
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) FDDForceBehavior *forceBehavior;
@@ -18,7 +19,7 @@
 
 @end
 
-@implementation FDDForceDirectedLayout
+@implementation FDDGraphViewLayout
 
 #pragma mark - SubclassingHooks
 
@@ -65,6 +66,11 @@
 
 #pragma mark - Public
 
+- (NSArray *)forcedItems
+{
+    return self.forceBehavior.items;
+}
+
 - (void)startPanItemAtIndexPath:(NSIndexPath *)indexPath atPoint:(CGPoint)point
 {
     if (!self.animator) {
@@ -101,13 +107,18 @@
 - (NSArray *)allAttributes
 {
     NSMutableArray *allAttributes = [NSMutableArray array];
+    FDDGraphViewLayoutAttributes *previousAttributes;
     for (NSInteger section = 0; section < [self.collectionView numberOfSections]; section++) {
         for (NSInteger item = 0; item < [self.collectionView numberOfItemsInSection:section]; item++) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-            attributes.size = CGSizeMake(44, 44);
+            FDDGraphViewLayoutAttributes *attributes = [FDDGraphViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
             attributes.center = CGPointMake(self.collectionView.center.x, self.collectionView.center.y + indexPath.row * 60);
             [allAttributes addObject:attributes];
+            
+            if (previousAttributes) {
+                [previousAttributes addConnectedAttributes:attributes];
+            }
+            previousAttributes = attributes;
         }
     }
     return allAttributes;
